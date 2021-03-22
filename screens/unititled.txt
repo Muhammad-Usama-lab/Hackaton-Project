@@ -1,0 +1,71 @@
+
+
+
+
+
+
+                        //imports 
+import React, { useEffect, useState } from 'react';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCompany } from '../Store/Action'
+
+
+const Company = () => {
+    const Company = useSelector(state => state.user.Company);
+    const dispatch = useDispatch();
+
+    // useEffect(() => {
+    //     dispatch(getCompany());
+    // },[Company])
+
+    return(
+        <>
+         <Text style={styles.Text}>---Companies---</Text>
+            <ScrollView>
+                {
+                    Company.map((person, index) => {
+                        // 
+                    })
+
+                }
+
+
+            </ScrollView>
+        </>
+    )
+}
+
+const styles = StyleSheet.create({
+    body: {
+        flex: 1,
+        fontSize: 30,
+        alignItems: 'center'
+    }, Student: {
+        width: '90%',
+        alignSelf:'center',
+        padding: 10,
+        borderRadius: 10,
+        backgroundColor: '#90CAF9',
+        margin: 5
+    }, Name: {
+        fontSize:20,
+        color:'#1E88E5',padding:2
+    },Email: {
+        fontSize:13,
+        color:'#455A64'
+    },contact:{
+        fontSize:13,
+        color:'#455A64'
+    },cnic:{
+        fontSize:13,
+        color:'#455A64'
+    },Text:{
+        fontSize:30,
+        color:'#37474F',
+        alignSelf:'center',
+        padding:5
+    }
+})
+
+export default Company;
